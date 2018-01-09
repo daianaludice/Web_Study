@@ -1,0 +1,114 @@
+4월 5일 스터디
+공지사항
+1.스터디 방식 변경
+- 인원이 많아짐에 따라 스터디 방식을 변경, 참여자의 참여도에 중점을 둠. 피드백이나 보충이 필요한 사람은 스스로 요청할것!
+2. 시험기간 스터디 일정 안내
+- 중간고사로 인해 4월 12,19,26 은 스터디없음. 5월 3일은 빨간날이므로 5월 4일 6시30분으로 시간 변경.
+3.중간고사 웹클 필기노트 필요한 사람 요청바람.
+
+수업내용
+1. 전체 피드백
+ 1)image map coords 부분에서 정확한 좌표의 값을 알기 어려우니 이미지 맵을 사용하는 유틸리티 그림판이나 나모,드림위버등을 참고하는것이 좋다.
+ 2)image map 은 circle,rect 말고도 poly(다각형)도 있으니 참고할것.
+2. 수업
+Lab5.html 
+ 1)<details>태그 사용 - 자식태그인 ,<summary>와 같이 사용됨 -> 세부사항을 숨길때 사용하기 좋다.
+ 2) HTML에서 정보 input받기 <form>태그 사용-form 태그는 정보를 입력받아 웹서버로 전송하기 위해 있다.
+
+*type="이 부분을 기억할것."
+<form>
+ ID: <input type="text" value="이름"><br> -아이디 입력하는 폼
+ PW: <input type="password" value="password"><br> -password 입력 폼으로 입력값이 가려져서 나옴
+ Blue <input type="checkbox"> Green <input type="checkbox" checked><br> -checkbox의 경우 중복 체크가 가능하다. 태그안에 checked 를 넣으면 체크된 채로 나타남.
+ Red <input type="radio" name="color"> White<input type="radio" name="color"><br> -radio의 경우 checkbox와 달리 중복 체크가 불가능 무조건 1택.
+
+ <select>
+  <option>option 1</option>
+  <option>option 2</option>
+ </select><br><br>
+ <button type="submit">Submit</button> -submit은 정보를 보내준다.
+ <button type="reset">Reset</button> -말 그대로 리셋.
+<br>
+<br>
+<br>
+</form>
+
+->사용해서 확인해보기.
+
+//추가적인 type
+
+<form> 
+ Email: <input type="email" name="mail" required=""><br> - email 형식이 아니면 에러 발생
+ URL: <input type="url" name="url" required=""><br> - url 형식이 아니면 에러
+ Phone: <input type="phone" name="phone" maxlength="11"><br> - max를 11로 설정하여 입력될 숫자는 11자리수를 넘을수없다.
+ Date: <input type="date" name="datetime"><br>
+ Number: <input type="number" name="number" min="10" max="20"><br> -min,max를 설정해야한다. min~max 에서의 숫자 선택가능
+ Range: <input type="range" name="renge" min="30" max="40"><br> -min,max를 설정해야한다. min~max 에서의 숫자 선택가능, 보여지는 모습이 range와 다름
+ Color: <input type="color" name="color"><br><br>
+ <button type="submit">Submit</button>
+ <button type="reset">Reset</button>
+</form>
+
+-> 사용해서 확인해보기.
+//form은 회원가입,로그인 페이지 만들때 사용된다.
+
+HTML Block Inline 요소
+Block 요소 : 항상 새로운 라인에서 시작하며 넓이가 꽉찬 상태로 시작한다.
+-> div,p,h1~h6 가 이에 속함 (div는 자신의 방식과 다른 html 파일에서도 자신의 스타일을 가진다. )
+Inline요소 : 새로운 라인에서 시작하지않는다, 모든 넓이를 차지하지않는다.
+-> a,img,span가 이에 속함 (span 은 텍스트 컨테이너로 자주 사용된다. 텍스트의 크기만큼 공간을 차지하기 때문.)
+
+레이아웃에 관련된 태그들 div,p,span의 차이점
+div (block) : 높이=0,길이= 100% - div는 줄 바꿈될때 공백 x -
+p (block) :  마진값,높이 =0, 길이=100% - p 는 위아래양옆으로 공백 -
+span (inline) : 높이= none,길이 = none - text의 크기만큼 공간 할당 -
+-> span의 경우 일반적으로 width가 none이지만 display:inline-block; 하고 width 설정하면 width 값이 설정된다.
+
+<p>ppppppppppppppppppppppppppp</p><p>22222222222222222222222222222222222</p><p>333333333333333333333333333</p>
+<br>
+<div>divdivdivdivdivdivdivdivdivdivdivdivdivdiv</div><div>4444444444444444444444444444</div><div>55555555555555555555555555555</div><br>
+<span>spanspanspanspanspanspanspanspanspanspan</span><span>66666666666666666666666666666</span><span>777777777777777777777777777777</span> 
+
+-> 사용해서 화면의 가로창을 최대로 줄여보기. p와 div 는 줄여진 화면의 크기만큼 공간이 줄어든다.(block이기 때문) span은 공간이 줄어들지않아 스크롤바를 이동시켜 확인가능. (inline이기때문)
+
+Lab6.html
+
+html을 다했음으로 CSS로 넘어감.
+CSS : Cascading Style Sheets 
+ -> Cascading: 폭포, 폭포는 위에서 아래로 떨어짐. CSS도 위에서 아래 순으로 적용됨.
+CSS는 웹 브라우저에서 HTML 파일을 어떻게 보여줄지 결정. 글꼴,크기와 색만이 아니라 형식 또한 바꿀수 있음.
+
+CSS 적용 방법
+1. 외부 2. 외부 3. Inline
+외부 적용방법이 가장 이상적인 방법.
+
+외부 적용 방법
+ - <head> 부분에 
+  <style>
+   <link rel="stylesheet" type="text/css" href="첨부할 CSS이름.css">
+  </style>
+을 사용함으로써 적용한다.
+
+내부 적용 방법
+ - <head> 부분에
+  <style>
+   selector { // selector 는 태그의 경우 태그이름{}, id의 경우 #id이름{}, class의 경우 .class{} 로 한다. 
+     속성 : 값;
+    }
+  </style>
+을 사용함으로써 적용한다.
+
+Inline 적용 방법
+ <ul> 태그에서 했던 것처럼 
+ <태그 style="속성:값;"> 으로 적용
+
+외부 적용 : 다른 html 파일에서도 css 파일 적용 가능 (재활요이 가능하다.) ,html 파일 크기 축소 (html 업데이트는 드문 반면에 css는 빈번할때 유용)
+내부 적용 : 같은 요소의 한 스타일,스타일로써 작동이 간단하고 html과 하나의 파일이다. 하지만 html 내용에서 같은 내용이 반복될때 복붙해야하며, 파일의 크기가 커질수있다는 단점이있다.
+Inline 적용 : Inline css 가 가장 우선순위임을 유의, 새로운것을 시도해보기 쉽다. 모든 요소에 적용을 시켜야하기때문에 번거롭다는 단점이있다.
+
+CSS 속성
+
+border 속성
+border 속성의 경우 width style color 등을 설정할수있다.
+ ex) border: 2px dotted blue; // ,가 필요없이 뛰어쓰기로 구분한다.
+style의 경우 dotted  말고도 dashed, solid,double,groove,ridge,inset,outset,none 등이 있다.

@@ -1,0 +1,101 @@
+5월 17일 스터디
+
+복습
+css 초입부.
+css란 html을 꾸며주는 기능을 한다.
+CSS(=Cascading Style Sheet) -> 뜻 그대로 위에서 아래로 적용된다.
+CSS 는 Selector 와 Declaration 부분으로 나뉜다.
+ selector{
+         Declaration 
+          }
+Ex) p{
+      color : red; 
+      }
+이 부분에서 color는 속성 red는 값을 의미한다. 선언문(Declaration)은 ' 속성 : 값; ' 의 형태를 갖는다.
+
+CSS 적용 방법은 3가지가 있다.
+1. 외부 2.내부 3.Inline
+각각의 장단점이 존재하지만 외부 적용방법이 가장 이상적이다. (재활용이 가능하다는 장점을 갖는다.)
+외부 적용방법은 html파일과 css파일을 따로 만들어 html head부분에 링크로 연결시키는 방법이다.
+html 의 head 에서  <link rel="stylesheet" type="text/css" href="첨부할 CSS이름.css"> 을 해준다.
+
+또한 selector는 태그의 경우 태그이름{}, id의 경우 #id이름{}, class의 경우 .class{} 로 적용한다.
+
+Lab 7
+html 파일
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="첨부할 CSS이름.css">
+</head>
+<body>
+<p>this is a test line</p>
+<div>test line,too</div>
+</body>
+</html>
+css 파일
+body{ background-color : red;
+   background-image: url("그림이름.jpg");
+  }
+// 배경색은 빨간색으로 변하고, 배경에 그림이 첨부된다. 그림의 크기가 웹 페이지 프레임보다 작을 경우 바둑판 형식으로 나타난다.
+-바둑판 형식 사용 안함
+ :css 에 body selector에 background-repeat : no-repeat;을 추가한다.
+
+Text style
+
+selector 에 
+Text Aligmnet :텍스트의 위치 결정 // text-align:(left/center/right 중 1택);
+Text color : 텍스트의 색 결정 //color : (원하는 색상);
+Text decoration : 텍스트의 선 외향(선 내부위치) 결정 //text-decoration:(none/overline/line-throw 중 1택);
+Text transformation : 텍스트의 내부위치 결정 //text-transform: (uppercase/lowercase 중 1택);
+Text indentation : 첫번째 줄의 시작  //text-indent: (숫자)px;
+Word spacing : 단어 사이의 간격 //word-spacing : (숫자)px;
+Letter spacing : 캐릭터 사이의 간격 //letter-spacing : (숫자)px;
+Line height : 라인 사이의 간격 //line-height: (숫자, 단위 필요없음);
+
+css파일에서
+p{ text-align:center;
+   color : orange;
+   text-decoration:over;
+   text-transform: uppercase;
+   text-indent: 50px;
+   word-spacing : 10px;
+   letter-spacing : 15px;
+   line-height: 10;}
+해보기
+
+폰트
+font-family라는 속성을 사용하여 폰트를 변경한다.
+ex) p{font-family : Arial,"Times New Roman",,"Courier New",Serif ;}
+폰트를 여러개 지정해 놓는 이유는 pc마다 지원이 되는 폰트가 다르기 때문에 우선순위대로 적용된다.
+값에는 Serif(명조체),Sans-serif(고딕체),Monospace(고정폭),Cursive(필기체),fantasy(장식체) 등 많은 폰트가 있다.
+참고)폰트는 개별적으로 다운 받아 사용하는것도 가능하다.
+
+그외의 font 효과
+div{ font-style: italic; //italic 체로 보여준다
+     font-weight : bold; //폰트의 굵기
+     font-size : 30px; // 폰트의 사이즈
+   }
+
+Link Decoration
+
+html의 body에 <a href="url">Test link decoration</a> 를 추가한다.
+css파일에서
+a:link // 방문하지 않은 링크
+a:visited // 방문한(클릭한) 링크
+a:hover // 커서를 링크에 가져갈때의 링크
+a:active // 클릭하는 순간의 링크
+를 사용해 본다. 여기서 a는 <a href="url">의 a태그를 select 한것이다.
+
+Ex)
+a:link {
+   color : orange;
+    }
+a:visited{ 
+   color : green;
+    }
+a:hover{
+   font-size : 50px;}
+a:active{
+   text-decoration:overline;}
+위의 코드를 사용하여 언제 위의 효과가 적용되는지 기억하기.

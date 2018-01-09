@@ -1,0 +1,101 @@
+복습
+Function 사용
+생성
+- function 이름() {
+  변수 정의 및 메소드 ex)  var a =3; console.log(a);}
+호출
+- 이름(); //a가 출력된다.
+
+DOM Events
+onclick - 마우스로 클릭 시 발생
+ondbclick - 마우스로 더블클릭 시 발생
+onmouseenter - 마우스가 포인터에 들어갔을 때 발생
+onmouseleave - 마우스가 포인터에서 나갈 때 발생
+onkeydown - 사용자가 키를 눌렀을 때 발생
+onload - 페이지가 완전히 로드 되었을 때 발생
+
+ex) <button onclick="ClickF()">Click Me</button>
+    js에서 function ClickF() { console.log("출력함");}를 설정
+    Click Me를 클릭하면 "출력함"이 출력된다.
+
+Jquery
+- javascript가 책이라면 jquery는 javascript가 담겨있는 도서관
+-jquery는 javascript를 좀 더 쉽게 사용하기 위해 있다
+-chrome 에서만 사용이 가능
+
+Jquery 사용
+jquery를 사용하기 위해 head 부분에
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+를 넣고 body의 맨 마지막 줄에
+<script type="text/javascript" src="첨주할js파일이름.js"></script>를 작성함으로써 첨부된다.
+
+Jquery access
+$ : jquery에 개체를 access하는데 쓰는 문자
+$('select') : select를 가리키고 해당 select에 이벤트 처리가 등록된다. 
+ selector -> tag : $('select'), id : $('#select'), class: $('.select')
+
+jquery를 사용하여 수정
+$('select').html('<b>HTML</b> 변경'); - 요소의 기존 html을 대체한다.
+$('select').text('<b>text</b> 변경'); - 요소의 기존 text를 대체한다.
+$('select').css('attr(속성),'value(값)'); - 요소의 기존 css를 대체한다.
+
+Tree 구조
+children(); -바로 아래의 요소 찾기
+find(); - 하위 요소중 요소찾기
+parent(); - 바로 위의 부모요소 찾기
+parents(); - 모든 부모요소 찾기
+ex)parent(.class_name);
+   parent(#id_name);
+   child(.class_name);
+   child(#id_name);
+
+요소 추가,삭제
+$('select').addClass('class_name');
+$('select').removeClass('class_name');
+
+Jquery Handling
+click() // 클릭했을 시
+dblclick() // 더블클릭했을 시
+mouseleave() //커서가 요소위에서 나갔을때
+mouseenter() //커서가 요소 안에 있을 때
+keypress() // 키를 눌렀을 때
+...등
+
+ex) $(selector).click(function(){//selector 클릭시 function 발생
+   발생할 function  내용 ex) alert("function 발생");
+});
+
+Jquery focus and blur
+focus() : input field에 커서가 입력되면 발생
+blur() : input field에 커서가 없어지게 되면 발생
+
+ex)
+$('input').focus(function(){ //input 요소의 field에 커서가 입력되면 fucntion 발생
+ $(this).next('span').removeAttr('hidden');//selector의 다음에 있는 span의 hidden요소 제거
+});
+$('input').blur(function(){ //input 요소의 field에 커서가 없어지면 fucntion 발생
+ $(this).next('span').attr('hidden','hidden'); //selector의 다음에 있는 span의 hidden요소 를 hidden으로 설정
+});
+
+Animation
+- 페이지에 animation을 추가한다.
+- jquery는 animation을 활용하기 위한 몇가지 method를 가진다.
+- css 스타일도 animate 요소로 설정할수 있다.
+기본적인 문법 : $(selector).animate({params},speed,callback);
+ hide(duration) : 설정한 duration 동안동작하여 최종적으로 선택한 아이템을 숨긴다.
+ show(duration) : 설정한 duration 동안동작하여 최종적으로 선택한 아이템을 보여준다.
+ toggle() : hide 와 show 사이의 스위치(hide와 show 둘다 가능)
+ fading() : 아이템의 show or hide의 투명함/불투명함을 바꾼다.
+ FadeIn() : 아이템이 나타난다.
+ FadeOut() : 아이템이 사라진다.
+ SlideUp() : 요소를 slide 식으로 올린다.
+ SlideDown(): 요소를 slide식으로 내린다.
+ex) 
+ $('selector').animate({opacity:"0.9"},2000);  //opacity는 투명도. 2000동안 동작해서 selector의 투명도를 0.9로 만든다.
+ 
+
+-----------------------------------여기까지 Jquery
+...이 이외에도
+die(),live(),trigger(event,[data]),bind() 등의 많은 이벤트가 존재하기 때문에 필요에 따라 알아보고 페이지를 만들것!
+
+
